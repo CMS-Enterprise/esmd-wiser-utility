@@ -1,0 +1,75 @@
+application:
+  name: esmd-wiser-utility
+  linesofbusinessid: 19
+userinfo:
+  mailboxid: WSDEV101
+  clientid: 57l6ji6uldkijb90gvebdbnaek
+  clientsecret: 1mser52polmh7nvcj0m13o06hbg16sjhe9pgfehu3qu0578c8spn
+
+
+api:
+  environment:
+    dev: https://dev.cpiapigateway.cms.gov/api/esmd/v1
+    val: https://val.cpiapigateway.cms.gov/api/esmd/v1
+    uat: https://val.cpiapigateway.cms.gov/api/esmd/ext/v1
+    prod: https://cpiapigateway.cms.gov/api/esmd/ext/v1
+  url:
+    auth: /auth/generate
+    download-url: /objects
+    upload-url: /objects
+    pa-results-realtime: /objects/realtime
+    admin-error-notification: /objects/notification/admin
+    pickup-notification: /objects/notification/pickup
+    pareject-notification: /objects/notification/pareject
+    notification-status: /objects/status/rc
+  scope:
+    notification: wiser/notification
+    status: wiser/status
+    uploadrealtime: wiser/uploadrealtime
+    upload: wiser/upload
+    download: wiser/download
+  file-download:
+    local-path: c:\\esmd\\wiser\\downloads
+  file-upload:
+    local-path: c:\\esmd\\wiser\\upload
+    partsize: 200857600
+  notification:
+    pickup: PICKUP
+
+errorCodes:
+  NOTIFICATION_TYPE_MISSING_ERR_CD: "Notification type is missing or null."
+  SENDER_ROUTING_ID_MISSING_ERR_CD: "Sender Routing ID is missing or null."
+  NOTIFICATION_ELEMENT_MISSING_ERR_CD: "Notification object is missing."
+  ESMD_TRANS_ID_MISSING_ERR_CD: "esMD Transaction ID is missing or null."
+  CREATION_TIME_MSSING_ERR_CD: "Creation time is missing or null."
+  SUBMISSION_TIME_MISSING_ERR_CD: "Submission Time is missing or null."
+  ERROR_MSG_ELEMENT_MISSING_ERR_CD: "Error messages object is missing or null."
+  ERROR_CD_MISSING_ERR_CD: "Error code is missing or null."
+  ERR_NAME_MISSING_ERR_CD: "Error name is missing or null."
+  ERR_DES_MISSING_ERR_CD: "Error description is required for error name element when value is 'Other'."
+  EMPTY_ADMINERROR_RESPONSE: "Admin Error object is missing or null."
+  REQTR_REASON_CD: "Reject Reason Code is missing for the Requester Object."
+  REQTR_REASON: "Reject Reason is required, if reject reason code is present."
+  BENEFICIARY_REASON_CD: "Reject Reason Code is missing for the Beneficiary Object."
+  BENEFICIARY_REASON: "Reject Reason is required, if reject reason code is present."
+  PATIENT_EVENT_REASON_CD: "Reject Reason Code is missing for the Patient Event Object."
+  PATIENT_EVENT_REASON: "Reject Reason is required, if reject reason code is present."
+  FACILITY_PROVIDER_QUALIFIER_CD: "Qualifier FA is required for the Facility Provider Object."
+  FACILITY_PROVIDER_REASON_CD: "Reject Reason Code is missing for the Facility Provider Object."
+  FACILITY_PROVIDER_REASON: "Reject Reason is required, if reject reason code is present."
+  ORDERING_PROVIDER_QUALIFIER_CD: "Qualifier DK is required for Ordering Provider Object."
+  ORDERING_PROVIDER_REASON_CD: "Reject Reason Code is missing for the Ordering Provider Object."
+  ORDERING_PROVIDER_REASON: "Reject Reason is required, if reject reason code is present."
+  RENDERING_PROVIDER_QUALIFIER_CD: "Qualifier SJ is required for Rendering or Supplier Provider Object."
+  RENDERING_PROVIDER_REASON_CD: "Reject Reason Code is missing for the Rendering or Supplier Provider Object."
+  RENDERING_PROVIDER_REASON: "Reject Reason is required, if reject reason code is present."
+  REFERRING_PROVIDER_QUALIFIER_CD: "Qualifier DN is required for Referring Provider Object."
+  REFERRING_PROVIDER_REASON_CD: "Reject Reason Code is missing for the Referring Provider Object."
+  REFERRING_PROVIDER_REASON: "Reject Reason is required, if reject reason code is present."
+  OPERATING_PROVIDER_QUALIFIER_CD: "Qualifier 72 is required for Operating Provider Object."
+  OPERATING_PROVIDER_REASON_CD: "Reject Reason Code is missing for the Operating Provider Object."
+  OPERATING_PROVIDER_REASON: "Reject Reason is required, if reject reason code is present."
+  ATTENDING_PROVIDER_QUALIFIER_CD: "Qualifier 71 is required for Attending Provider Object."
+  ATTENDING_PROVIDER_REASON_CD: "Reject Reason Code is missing for Attending Provider Object."
+  ATTENDING_PROVIDER_REASON: "Reject Reason is required, if reject reason code is present."
+  EMPTY_PAREJECT_RESPONSE: "PA Reject Response object is missing or null."

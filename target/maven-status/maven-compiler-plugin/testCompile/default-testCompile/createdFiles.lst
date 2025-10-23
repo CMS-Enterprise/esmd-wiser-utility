@@ -1,0 +1,3 @@
+gov\cms\esmd\bean\auth\AuthInfoBeanTest.class
+gov\cms\esmd\bean\ErrorMessageTest.class
+gov\cms\esmd\bean\auth\response\AuthResponseTest.class

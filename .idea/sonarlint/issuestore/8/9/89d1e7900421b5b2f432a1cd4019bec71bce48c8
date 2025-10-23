@@ -1,0 +1,11 @@
+
+x
+java:S1845"bRename field "senderRoutingId" to prevent any misunderstanding/clash with field "senderRoutingID".(ÅĞíÔ
+…
+java:S1845"jRename method "getSenderRoutingId" to prevent any misunderstanding/clash with method "getSenderRoutingID".(â©ƒ÷ÿÿÿÿÿ
+€
+java:S1845"jRename method "setSenderRoutingId" to prevent any misunderstanding/clash with method "setSenderRoutingID".(ƒˆ”
+†
+java:S1319#"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(†Ä¸Õ
+ƒ
+java:S1319'"mThe type of "statusDetails" should be an interface such as "List" rather than the implementation "ArrayList".(·Ñ‹“

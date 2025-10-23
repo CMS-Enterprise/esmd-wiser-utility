@@ -1,0 +1,23 @@
+
+\
+java:S3457+"AFormat specifiers should be used instead of string concatenation.(İ·â”ıÿÿÿÿ
+\
+java:S3457D"AFormat specifiers should be used instead of string concatenation.(İ·â”ıÿÿÿÿ
+V
+java:S3457c"AFormat specifiers should be used instead of string concatenation.(¸œ‡o
+\
+java:S3457h"AFormat specifiers should be used instead of string concatenation.(¤Ú‡ûÿÿÿÿ
+s
+java:S2139"XEither log this exception and handle it, or rethrow it with some contextual information.(±Ÿ—±ÿÿÿÿÿ
+j
+java:S3776œ"SRefactor this method to reduce its Cognitive Complexity from 252 to the 15 allowed.(­ıËè
+n
+java:S3776Ì"RRefactor this method to reduce its Cognitive Complexity from 63 to the 15 allowed.(´Ãáùÿÿÿÿ
+R
+java:S2629+"7Use the built-in formatting to construct this argument.(İ·â”ıÿÿÿÿ
+R
+java:S2629D"7Use the built-in formatting to construct this argument.(İ·â”ıÿÿÿÿ
+L
+java:S2629c"7Use the built-in formatting to construct this argument.(¸œ‡o
+R
+java:S2629h"7Use the built-in formatting to construct this argument.(¤Ú‡ûÿÿÿÿ

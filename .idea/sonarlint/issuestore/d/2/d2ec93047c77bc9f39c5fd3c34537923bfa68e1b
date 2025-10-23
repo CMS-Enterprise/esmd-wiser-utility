@@ -1,0 +1,9 @@
+
+[	java:S112!"FDefine and throw a dedicated exception instead of using a generic one.(þß™¢
+I
+java:S1172".Remove this unused method parameter "profile".(Å‰’Èüÿÿÿÿ
+h
+java:S3776,"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(üï ˜
+‡
+java:S1130>"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ÙØ¤Þýÿÿÿÿ
+N	java:S106@"9Replace this use of System.out or System.err by a logger.(óÈÕ¤

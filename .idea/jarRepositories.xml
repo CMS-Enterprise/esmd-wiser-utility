@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="MuleRepository" />
+      <option name="name" value="MuleEE Releases Repository" />
+      <option name="url" value="https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="central" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="mulesoft-releases" />
+      <option name="name" value="MuleSoft Release epository" />
+      <option name="url" value="http://repository.mulesoft.org/releases/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="mulesoft-public" />
+      <option name="name" value="MuleSoft Public Repository" />
+      <option name="url" value="https://repository.mulesoft.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="mulesoft-snapshots" />
+      <option name="name" value="MuleSoft Snapshot Repository" />
+      <option name="url" value="http://repository.mulesoft.org/snapshots/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="PCEExchange" />
+      <option name="name" value="CMS PCE Exchange Repository" />
+      <option name="url" value="https://cpianypointdev.cms.gov/exchange/maven/api/v2/organizations/d11d1232-905f-4204-aa86-aab88bb4c6c1/maven" />
+    </remote-repository>
+  </component>
+</project>
