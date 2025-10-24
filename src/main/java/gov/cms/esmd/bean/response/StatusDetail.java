@@ -1,18 +1,19 @@
 package gov.cms.esmd.bean.response;
 
 import gov.cms.esmd.bean.ErrorMessage;
+import gov.cms.esmd.bean.parejectjson.Beneficiary;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class StatusDetail {
 
-    private String esMDTransactionID;
+    private String esMDTransactionId;
     private String contenttypecd;
-    private String parentTransactionID;
+    private String parentTransactionId;
     private String deliveryType;
     private String uniqueTrackingNumber;
-
+    private BeneInformation beneInformation;
     public String getUniqueTrackingNumber() {
         return uniqueTrackingNumber;
     }
@@ -57,11 +58,11 @@ public class StatusDetail {
         errorMessages = errorMessageList;
     }
     public String getEsMDTransactionID() {
-        return esMDTransactionID;
+        return esMDTransactionId;
     }
 
     public void setEsMDTransactionID(String esMDTransactionID) {
-        this.esMDTransactionID = esMDTransactionID;
+        this.esMDTransactionId = esMDTransactionID;
     }
 
     public String getContenttypecd() {
@@ -73,11 +74,11 @@ public class StatusDetail {
     }
 
     public String getParentTransactionID() {
-        return parentTransactionID;
+        return parentTransactionId;
     }
 
     public void setParentTransactionID(String parentTransactionID) {
-        this.parentTransactionID = parentTransactionID;
+        this.parentTransactionId = parentTransactionID;
     }
 
     public String getDeliveryType() {
