@@ -1,6 +1,7 @@
 # ESMD Wiser Utility
 
-A Java utility library for interacting with the Electronic Submission of Medical Documentation (esMD) Wiser API. This utility provides comprehensive functionality for uploading, downloading, and managing Wiser requests and responses through the esMD system.
+A Java utility library for interacting with the Electronic Submission of Medical Documentation (esMD) Wiser API. 
+This utility provides comprehensive functionality for uploading, downloading, and managing Wiser requests and responses through the esMD system.
 
 ## 🚀 Features
 
@@ -303,7 +304,6 @@ This project is licensed under the terms specified in the project documentation.
 ## 📞 Support
 
 For support and questions:
-- Review the security documentation in `SECURITY_IMPROVEMENTS.md`
 - Check the test cases for usage examples
 - Ensure all dependencies are up to date
 
