@@ -14,6 +14,8 @@ import org.slf4j.LoggerFactory;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -53,20 +55,21 @@ public class NotificationsImpl {
      * @return List of StatusDetail objects containing download status for each zip file
      * @throws Exception if any step in the download process fails
      */
-    public NotificationResponse sendNotificationToESMD(String environment, String jsonMessage, String notificationType) throws Exception {
+    public NotificationResponse sendNotificationToESMD(
+            String environment, String jsonMessage, String notificationType) throws Exception {
         logger.info("Starting Notification process for environment: {}", environment);
 
         // Initialize status details list
         NotificationResponse notificationResponse = null;
 
+        // Read configuration from YAML properties
+        String scope = getRequiredProperty("api.scope.status");
+        String mailboxId = apiProperties.getProperty("userinfo.mailboxid");
+
         // Validate environment parameter
         if (environment == null || environment.trim().isEmpty()) {
             throw new IllegalArgumentException("Environment cannot be null or empty");
         }
-
-        // Read configuration from YAML properties
-        String scope = getRequiredProperty("api.scope.status");
-        String clientId = getRequiredProperty("userinfo.clientid");
 
         try {
             AuthApiClient authClient = new AuthApiClient(environment);
@@ -82,24 +85,25 @@ public class NotificationsImpl {
             String token = authResponse.getAccess_token();
             logger.info("Authentication successful, token acquired");
 
-            // Step 2: Get Notification Statues
-            logger.info("Step 2: Send notifications : {}", notificationType);
+            // Step 2: Build Notification URL
+            logger.info("Step 2: Build Notification URL : {}", notificationType);
             String notificationURL = buildNotificationURL(environment);
             NotificationApiClient notificationApiClient = new NotificationApiClient(notificationURL);
-            String mailboxId = apiProperties.getProperty("userinfo.mailboxid");
 
+            // Step 3: Submit Notification to esMD
+            logger.info("Step 3: Submit Notification to esMD : {}", notificationType);
             notificationResponse =  notificationApiClient.submitNotification(
                     token,jsonMessage,notificationType,notificationURL);
 
             if (notificationResponse.getStatusDetails() == null
                     || notificationResponse.getStatusDetails().isEmpty()) {
-                logger.info("No new statues available.");
+                logger.info("No new statues available for {}" ,mailboxId);
                 return notificationResponse;
             }
-            logger.info("Notification process completed for environment: {}", environment);
+            logger.info("Notification process completed for mailboxId: {}", mailboxId);
 
         } catch (Exception e) {
-            logger.error("Notification process failed for environment: {}", environment, e);
+            logger.error("Notification process failed for mailboxId: {}", mailboxId, e);
             throw e;
         }
 
@@ -114,19 +118,18 @@ public class NotificationsImpl {
         pickupNotification.setNotificationType(notificationType);
         pickupNotification.setSenderRoutingId(senderRoutingID);
         Notification notification = new Notification();
-        notification.setEsMDTransactionId(esMDTransactionId);
 
         String formattedDate = new SimpleDateFormat(DATE_FORMAT).format(new Date());
         Date parsedDate = new SimpleDateFormat(DATE_FORMAT).parse(formattedDate);
 
-        notification.setCreationTime(parsedDate);
-        notification.setSubmissionTime(parsedDate);
-        notification.setFileName(filename);
+        notification.setPickupTime(formattedDate);
+        notification.setSubmissionTime(formattedDate);
+        notification.setFilename(filename);
+        notification.setEsMDTransactionId(esMDTransactionId);
         notification.setStatus("SUCCESS");
         notification.setErrorMessages(new ArrayList<>());
         notificationList.add(notification);
         pickupNotification.setNotification(notificationList);
-
         jsonString = new Gson().toJson(pickupNotification);
         logger.info("createJsonPickupNotification,jsonString: " + jsonString);
         return jsonString;
@@ -183,4 +186,3 @@ public class NotificationsImpl {
         System.out.println(gson.toJson(notificationResponse));
     }
 }
-
