@@ -1,5 +1,7 @@
 package gov.cms.esmd.rc.impl;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import gov.cms.esmd.bean.ErrorMessage;
 import gov.cms.esmd.bean.auth.response.AuthResponse;
 import gov.cms.esmd.bean.response.*;
@@ -211,10 +213,11 @@ public class DownloadImpl {
                     // create Pickup Notification
                     String pickupNotification = notifications.createPickupNotification(
                             notificationType, senderRoutingId, esmdTransactionId, filename);
-
+                    logger.info("Successfully created Pickup Notification: {}", pickupNotification);
                     // Submit Pickup Notification
-                    notifications.sendNotificationToESMD(environment,pickupNotification, notificationType);
-
+                   NotificationResponse notificationResponse = notifications.sendNotificationToESMD(environment,pickupNotification, notificationType);
+                    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                    logger.info("Successfully submitted Pickup Notification to esMD: {}", gson.toJson(notificationResponse));
                 } else {
                     logger.warn("Failed to extract zip file: {}", filename);
                     statusDetail.setStatus("PARTIAL_SUCCESS");
@@ -262,13 +265,13 @@ public class DownloadImpl {
             // Split by dots to get the parts
             String[] parts = nameWithoutExt.split("\\.");
             
-            // Expected format: ES9999.D.L1.EZKW0007260517EC.ESMD2.D071425.T2219020
+            // Expected format: ES9999.D.L1.MZKW0007260517EC.ESMD2.D071425.T2219020
             // We need the 4th part (index 3) which should contain the transaction ID
             if (parts.length >= 4) {
                 String transactionIdPart = parts[3];
                 
-                // Remove the "E" prefix if present (e.g., EZKW0007260517EC -> ZKW0007260517EC)
-                if (transactionIdPart.startsWith("E") && transactionIdPart.length() > 1) {
+                // Remove the "M" or "Z" prefix if present (e.g., EZKW0007260517EC -> ZKW0007260517EC)
+                if ((transactionIdPart.startsWith("M") || transactionIdPart.startsWith("Z")) && transactionIdPart.length() > 1) {
                     String transactionId = transactionIdPart.substring(1);
                     logger.debug("Extracted transaction ID: {} from part: {}", transactionId, transactionIdPart);
                     return transactionId;
